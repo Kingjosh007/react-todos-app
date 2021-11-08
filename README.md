@@ -31,8 +31,9 @@ To get a local copy of this project running in development mode, do the followin
 1. In your terminal, `cd` to the folder where you want to copy this project.
 2. Still in your terminal, type `git clone git@github.com:Kingjosh007/react-todos-app.git`
 3. Run `cd react-todos-app`
-4. Run `npm start` or `yarn start`
-5. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Run `npm install` and wait till the installation is complete.
+5. Run `npm start` or `yarn start`
+6. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 
 ## Screenshot
