@@ -1,7 +1,9 @@
 import React from 'react';
+import TodosList from './TodosList';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoContainer extends React.Component {
+    // eslint-disable-next-line react/state-in-constructor
     state = {
       todos: [
         {
@@ -23,12 +25,11 @@ class TodoContainer extends React.Component {
     };
 
     render() {
+      const { todos } = this.state;
       return (
-        <ul>
-          {this.state.todos.map((todo) => (
-            <li>{todo.title}</li>
-          ))}
-        </ul>
+        <div>
+          <TodosList todos={todos} />
+        </div>
       );
     }
 }
