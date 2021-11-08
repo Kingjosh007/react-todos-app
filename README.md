@@ -6,8 +6,8 @@
 
 The tutorial was divided into 11 parts. Refer to the corresponding branch for each part. The branch in bold is what I'm working on:
 
-- **0: Setup**
-- 1: React basic concepts
+- 0: Setup
+- **1: React basic concepts**
 - 2: Working with React form and handling events
 - 3: Implement CSS in React app
 - 4: Edit to dos items
