@@ -25,12 +25,16 @@ class TodoContainer extends React.Component {
       ],
     };
 
+    handleChange = () => {
+      console.log('clicked');
+    };
+
     render() {
       const { todos } = this.state;
       return (
         <div>
           <Header />
-          <TodosList todos={todos} />
+          <TodosList todos={todos} handleChangeProps={this.handleChange} />
         </div>
       );
     }

@@ -4,13 +4,13 @@ import React from 'react';
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoItem extends React.Component {
   render() {
-    const { todo } = this.props;
+    const { todo, handleChangeProps } = this.props;
     return (
       <li>
         <input
           type="checkbox"
           checked={todo.completed}
-          onChange={() => console.log('Clicked')}
+          onChange={() => handleChangeProps()}
         />
         {todo.title}
       </li>
