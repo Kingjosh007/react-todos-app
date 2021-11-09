@@ -4,8 +4,15 @@ import styles from './TodoItem.module.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoItem extends React.Component {
+// eslint-disable-next-line react/state-in-constructor
+state = {
+  editing: false,
+};
+
 handleEditing = () => {
-  console.log('Edit mode activated');
+  this.setState({
+    editing: true,
+  });
 };
 
 render() {
@@ -15,6 +22,8 @@ render() {
     deleteTodoProps,
   } = this.props;
 
+  const { editing } = this.state;
+
   const completedStyle = {
     fontStyle: 'italic',
     color: '#595959',
@@ -22,9 +31,18 @@ render() {
     textDecoration: 'line-through',
   };
 
+  const viewMode = {};
+  const editMode = {};
+
+  if (editing) {
+    viewMode.display = 'none';
+  } else {
+    editMode.display = 'none';
+  }
+
   return (
     <li className={styles.item}>
-      <div onDoubleClick={this.handleEditing}>
+      <div onDoubleClick={this.handleEditing} style={viewMode}>
         <input
           type="checkbox"
           className={styles.checkbox}
@@ -34,13 +52,14 @@ render() {
         <span style={todo.completed ? completedStyle : null}>
           {todo.title}
         </span>
+        <button
+          type="button"
+          onClick={() => deleteTodoProps(todo.id)}
+        >
+          Delete
+        </button>
       </div>
-      <button
-        type="button"
-        onClick={() => deleteTodoProps(todo.id)}
-      >
-        Delete
-      </button>
+      <input type="text" style={editMode} className={styles.textInput} />
     </li>
   );
 }
