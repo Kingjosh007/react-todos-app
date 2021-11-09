@@ -53,9 +53,13 @@ class TodoContainer extends React.Component {
         title,
         completed: false,
       };
-      this.setState({
-        todos: [...todos, newTodo],
-      });
+      if (todos.find((td) => td.title === title)) {
+        alert('A to-do item already has this title. Please change it');
+      } else {
+        this.setState({
+          todos: [...todos, newTodo],
+        });
+      }
     };
 
     render() {
