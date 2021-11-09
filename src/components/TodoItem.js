@@ -4,22 +4,27 @@ import styles from './TodoItem.module.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoItem extends React.Component {
-  render() {
-    const {
-      todo,
-      handleChangeProps,
-      deleteTodoProps,
-    } = this.props;
+handleEditing = () => {
+  console.log('Edit mode activated');
+};
 
-    const completedStyle = {
-      fontStyle: 'italic',
-      color: '#595959',
-      opacity: 0.4,
-      textDecoration: 'line-through',
-    };
+render() {
+  const {
+    todo,
+    handleChangeProps,
+    deleteTodoProps,
+  } = this.props;
 
-    return (
-      <li className={styles.item}>
+  const completedStyle = {
+    fontStyle: 'italic',
+    color: '#595959',
+    opacity: 0.4,
+    textDecoration: 'line-through',
+  };
+
+  return (
+    <li className={styles.item}>
+      <div onDoubleClick={this.handleEditing}>
         <input
           type="checkbox"
           className={styles.checkbox}
@@ -29,15 +34,16 @@ class TodoItem extends React.Component {
         <span style={todo.completed ? completedStyle : null}>
           {todo.title}
         </span>
-        <button
-          type="button"
-          onClick={() => deleteTodoProps(todo.id)}
-        >
-          Delete
-        </button>
-      </li>
-    );
-  }
+      </div>
+      <button
+        type="button"
+        onClick={() => deleteTodoProps(todo.id)}
+      >
+        Delete
+      </button>
+    </li>
+  );
+}
 }
 
 export default TodoItem;
