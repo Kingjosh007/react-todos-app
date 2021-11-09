@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -49,6 +50,7 @@ class TodoContainer extends React.Component {
       return (
         <div>
           <Header />
+          <InputTodo />
           <TodosList
             todos={todos}
             handleChangeProps={this.handleChange}
