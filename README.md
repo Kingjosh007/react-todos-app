@@ -12,6 +12,8 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 - 3: Implement CSS in React app
 - 4: Edit to dos items
 - **5: Persisting React state in local storage**
+> Since this was just about learning how to use the Local Storage in the browser, which I'm already familiar with, I decided to skip this part 5.
+
 - 6: Getting started with React lifecycle methods
 - 7: Getting started with React hooks
 - 8: Use SVG icons in React
