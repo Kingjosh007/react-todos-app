@@ -15,6 +15,12 @@ handleEditing = () => {
   });
 };
 
+handleUpdatedDone = (e) => {
+  if (e.key === 'Enter') {
+    this.setState({ editing: false });
+  }
+};
+
 render() {
   const {
     todo,
@@ -68,6 +74,7 @@ render() {
         onChange={(e) => {
           setUpdateProps(e.target.value, todo.id);
         }}
+        onKeyDown={this.handleUpdatedDone}
       />
     </li>
   );
