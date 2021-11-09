@@ -38,7 +38,7 @@ To get a local copy of this project running in development mode, do the followin
 
 ## Screenshot
 
-![Result after Part 3: Styling](screenshots/3-styling.gif)
+![Result after Part 4: Edit todos](screenshots/4-edit-todos.gif)
 
 ## Built With
 
