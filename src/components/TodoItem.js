@@ -20,6 +20,7 @@ render() {
     todo,
     handleChangeProps,
     deleteTodoProps,
+    setUpdate,
   } = this.props;
 
   const { editing } = this.state;
@@ -59,7 +60,15 @@ render() {
           Delete
         </button>
       </div>
-      <input type="text" style={editMode} className={styles.textInput} />
+      <input
+        type="text"
+        style={editMode}
+        className={styles.textInput}
+        value={todo.title}
+        onChange={(e) => {
+          setUpdate(e.target.value, todo.id);
+        }}
+      />
     </li>
   );
 }
