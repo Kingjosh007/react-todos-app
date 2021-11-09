@@ -13,10 +13,21 @@ class InputTodo extends Component {
     });
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { title } = this.state;
+    // eslint-disable-next-line react/prop-types
+    const { addTodoProps } = this.props;
+    addTodoProps(title);
+    this.setState({
+      title: '',
+    });
+  }
+
   render() {
     const { title } = this.state;
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Add Todo..."
