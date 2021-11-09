@@ -4,7 +4,12 @@ import React from 'react';
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoItem extends React.Component {
   render() {
-    const { todo, handleChangeProps } = this.props;
+    const {
+      todo,
+      handleChangeProps,
+      deleteTodoProps,
+    } = this.props;
+
     return (
       <li>
         <input
@@ -13,7 +18,12 @@ class TodoItem extends React.Component {
           onChange={() => handleChangeProps(todo.id)}
         />
         {todo.title}
-        <button type="button">Delete</button>
+        <button
+          type="button"
+          onClick={() => deleteTodoProps(todo.id)}
+        >
+          Delete
+        </button>
       </li>
     );
   }
