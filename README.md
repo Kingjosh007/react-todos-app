@@ -9,8 +9,8 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 - 0: Setup
 - 1: React basic concepts
 - 2: Working with React form and handling events
-- **3: Implement CSS in React app**
-- 4: Edit to dos items
+- 3: Implement CSS in React app
+- **4: Edit to dos items**
 - 5: Persisting React state in local storage
 - 6: Getting started with React lifecycle methods
 - 7: Getting started with React hooks
@@ -38,7 +38,7 @@ To get a local copy of this project running in development mode, do the followin
 
 ## Screenshot
 
-![Result after Part 3: Styling](screenshots/3-styling.gif)
+![Result after Part 4: Edit todos](screenshots/4-edit-todos.gif)
 
 ## Built With
 
