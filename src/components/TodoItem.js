@@ -20,7 +20,7 @@ render() {
     todo,
     handleChangeProps,
     deleteTodoProps,
-    setUpdate,
+    setUpdateProps,
   } = this.props;
 
   const { editing } = this.state;
@@ -66,7 +66,7 @@ render() {
         className={styles.textInput}
         value={todo.title}
         onChange={(e) => {
-          setUpdate(e.target.value, todo.id);
+          setUpdateProps(e.target.value, todo.id);
         }}
       />
     </li>
