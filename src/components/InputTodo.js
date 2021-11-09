@@ -8,7 +8,9 @@ class InputTodo extends Component {
   };
 
   onChange = (e) => {
-    console.log('Hello');
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   render() {
@@ -19,6 +21,7 @@ class InputTodo extends Component {
           type="text"
           placeholder="Add Todo..."
           value={title}
+          name="title"
           onChange={this.onChange}
         />
         <button type="submit">Submit</button>
