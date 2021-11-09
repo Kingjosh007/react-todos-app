@@ -11,6 +11,13 @@ class TodoItem extends React.Component {
       deleteTodoProps,
     } = this.props;
 
+    const completedStyle = {
+      fontStyle: 'italic',
+      color: '#595959',
+      opacity: 0.4,
+      textDecoration: 'line-through',
+    };
+
     return (
       <li className={styles.item}>
         <input
@@ -19,7 +26,9 @@ class TodoItem extends React.Component {
           checked={todo.completed}
           onChange={() => handleChangeProps(todo.id)}
         />
-        {todo.title}
+        <span style={todo.completed ? completedStyle : null}>
+          {todo.title}
+        </span>
         <button
           type="button"
           onClick={() => deleteTodoProps(todo.id)}
