@@ -3,42 +3,45 @@ import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
+import { capitalize } from '../utils/stringManipulations';
+import { getFromLocalStorage, saveToLocalStorage } from '../utils/storage';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoContainer extends React.Component {
     // eslint-disable-next-line react/state-in-constructor
     state = {
-      todos: [
-        {
-          id: uuidv4(),
-          title: 'Setup development environment',
-          completed: true,
-        },
-        {
-          id: uuidv4(),
-          title: 'Develop website and add content',
-          completed: false,
-        },
-        {
-          id: uuidv4(),
-          title: 'Deploy to live server',
-          completed: false,
-        },
-      ],
+      todos: [],
     };
 
-    handleChange = (id) => {
-      this.setState((prevState) => ({
-        todos: prevState.todos.map((todo) => {
-          if (todo.id === id) {
-            return {
-              ...todo, completed: !todo.completed,
-            };
-          }
-          return todo;
-        }),
-      }));
-    };
+    // Life cycle methods
+    componentDidMount() {
+      const todos = getFromLocalStorage('todos');
+      if (todos) {
+        this.setState({ todos });
+      } else {
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.setState({
+              todos: data.map((td) => {
+                const newTodo = { ...td };
+                newTodo.title = capitalize(td.title);
+                return newTodo;
+              }),
+            });
+          });
+      }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+      const { todos } = this.state;
+      if (prevState.todos !== todos) {
+        saveToLocalStorage('todos', todos);
+      }
+    }
+
+    // Methods
 
     delTodo = (id) => {
       this.setState((prevState) => ({
