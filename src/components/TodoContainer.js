@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
+import { capitalize } from '../utils/stringManipulations';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoContainer extends React.Component {
@@ -11,18 +12,21 @@ class TodoContainer extends React.Component {
       todos: [],
     };
 
-    handleChange = (id) => {
-      this.setState((prevState) => ({
-        todos: prevState.todos.map((todo) => {
-          if (todo.id === id) {
-            return {
-              ...todo, completed: !todo.completed,
-            };
-          }
-          return todo;
-        }),
-      }));
-    };
+    // Life cycle methods
+    componentDidMount() {
+      fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.setState({
+            todos: data.map((td) => {
+              const newTodo = { ...td };
+              newTodo.title = capitalize(td.title);
+              return newTodo;
+            }),
+          });
+        });
+    }
 
     delTodo = (id) => {
       this.setState((prevState) => ({
