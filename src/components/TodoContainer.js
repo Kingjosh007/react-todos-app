@@ -4,6 +4,7 @@ import Header from './Header';
 import InputTodo from './InputTodo';
 import TodosList from './TodosList';
 import { capitalize } from '../utils/stringManipulations';
+import { getFromLocalStorage, saveToLocalStorage } from '../utils/storage';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class TodoContainer extends React.Component {
@@ -14,18 +15,30 @@ class TodoContainer extends React.Component {
 
     // Life cycle methods
     componentDidMount() {
-      fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          this.setState({
-            todos: data.map((td) => {
-              const newTodo = { ...td };
-              newTodo.title = capitalize(td.title);
-              return newTodo;
-            }),
+      const todos = getFromLocalStorage('todos');
+      if (todos) {
+        this.setState({ todos });
+      } else {
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=10')
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            this.setState({
+              todos: data.map((td) => {
+                const newTodo = { ...td };
+                newTodo.title = capitalize(td.title);
+                return newTodo;
+              }),
+            });
           });
-        });
+      }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+      const { todos } = this.state;
+      if (prevState.todos !== todos) {
+        saveToLocalStorage('todos', todos);
+      }
     }
 
     delTodo = (id) => {
