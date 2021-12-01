@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 const InputTodo = (props) => {
@@ -9,9 +10,9 @@ const InputTodo = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { addTodoProps } = props;
     if (title.trim()) {
-      // eslint-disable-next-line react/prop-types
-      props.addTodoProps(title);
+      addTodoProps(title);
       setTitle('');
     } else {
       alert('Please write item');
