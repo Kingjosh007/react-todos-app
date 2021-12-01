@@ -14,8 +14,8 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 - 5: Persisting React state in local storage
 > Since this was just about learning how to use the Local Storage in the browser, which I'm already familiar with, I decided to skip this part 5.
 
-- **6: Getting started with React lifecycle methods**
-- 7: Getting started with React hooks
+- 6: Getting started with React lifecycle methods
+- **7: Getting started with React hooks**
 - 8: Use SVG icons in React
 - 9: Routing with React Router
 - 10: Add hamburger menu in React
@@ -25,6 +25,7 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 ## Live Demo
 
 This project is not deployed yet. It will be deployed later to **Github Pages**.
+
 
 ## Getting Started
 
