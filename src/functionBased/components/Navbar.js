@@ -29,7 +29,7 @@ const Navbar = () => {
       >
         {navbarOpen ? 'Close nav' : 'Open nav'}
       </button>
-      <ul>
+      <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
         {links.map((link) => (
           <li key={link.id}>
             <NavLink to={link.path} activeclassname="active-link" exact="true">
