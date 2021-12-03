@@ -20,10 +20,10 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 - 9: Routing with React Router
 > Unluckily for me, I couldn't complete the dynamic routing part. This tutorial was made using react-router-dom v5, while I'm using v6 and some things from v5 are done differently. Since I don't have enough time now, I'll leave it as it is and try to learn about dynamic routing using react-router-dom v6 in the future. 
 
-- **10: Add hamburger menu in React**
+- 10: Add hamburger menu in React
 > Didn't style the about page for the same reasons as the dynamic routing part.
 
-- 11: Deploying React app to Github Pages
+- **11: Deploying React app to Github Pages**
 
 
 ## Live Demo
