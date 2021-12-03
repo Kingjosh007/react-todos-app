@@ -21,6 +21,10 @@ const Navbar = () => {
     setNavbarOpen((prev) => !prev);
   };
 
+  const closeMenu = () => {
+    setNavbarOpen(false);
+  };
+
   return (
     <nav className="navBar">
       <button
@@ -32,7 +36,12 @@ const Navbar = () => {
       <ul className={`menuNav ${navbarOpen ? ' showMenu' : ''}`}>
         {links.map((link) => (
           <li key={link.id}>
-            <NavLink to={link.path} activeclassname="active-link" exact="true">
+            <NavLink
+              to={link.path}
+              activeclassname="active-link"
+              exact="true"
+              onClick={() => closeMenu()}
+            >
               {link.text}
             </NavLink>
           </li>
