@@ -28,7 +28,7 @@ The tutorial was divided into 11 parts. Refer to the corresponding branch for ea
 
 ## Live Demo
 
-This project is not deployed yet. It will be deployed later to **Github Pages**.
+Here is the link to the live version of this project: [Live app](https://kingjosh007.github.io/react-todos-app)
 
 
 ## Getting Started
